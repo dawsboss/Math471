@@ -58,28 +58,7 @@ def Error_Newton_Method( f, x0, err, df=False, verbose = False):
 
 
 
-def Better_Error_Newton_Method( f, x0, err, df=False, verbose = False):
-    rtn = x0
-    count = 0
-    old = 0.0
-    if(df):
-        while(count<10000):
-            count = count +1
-            old = rtn    
-            rtn = rtn - (f(rtn) / df(rtn))
-            if(abs(rtn-old) < err):
-                break
-            
-    else:
-        df = derivatice_approx
-        while(count < 10000):
-            count = count +1            
-            old = rtn
-            rtn = rtn - (f(rtn) / df(f, rtn, .000001))
-            if((abs(f(rtn))) + (abs(rtn-old)) < err):
-                break
-    
-    return (rtn,count)
+
 
 
 
@@ -167,9 +146,6 @@ resultY = []
 for i in result:
     y = derivatice_approx(func, i, .000001)*(x-i)+func(i)
     plt.plot(x,y)
-    
-
-
 
 plt.show()
 
