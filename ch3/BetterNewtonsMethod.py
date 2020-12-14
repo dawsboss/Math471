@@ -51,7 +51,7 @@ def Better_Error_Newton_Method( f, x0, err, df=False, verbose = False):
             if(verbose):
                 print(f"count: {count} | n: {n}\n rtn: {rtn}\n")
             
-            if((abs(f(rtn))) + (abs(rtn-old)) < err):
+            if((abs(f(rtn))) + (abs(rtn-old)) < err/5):
                 break
     
     return (rtn,count)
